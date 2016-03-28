@@ -1,0 +1,33 @@
+<!-- Create a default Route -->
+
+<html ng-app="myApp">
+	<head>
+		<title>AngularJS Routes</title>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
+		<script type="text/javascript">
+			var module = angular.module('myApp', ['ngRoute']);
+			module.config(['$routeProvider', function($routeProvider){
+				$routeProvider
+				.when('/about', {
+					template: '<h1>This is about page.</h1>',
+					controller: 'oneCtrl'
+				})
+				.otherwise({
+					redirectTo: '/default',
+					template: '<h1>This is default Page.</h1>',
+					controller: 'indexCtrl'
+				})
+			}]);
+			module.controller('indexCtrl', function(){	
+				
+			});
+			module.controller('oneCtrl', function(){	
+				
+			});
+		</script>
+	</head>
+	<body>
+		<div ng-view></div>
+	</body> 
+</html>
